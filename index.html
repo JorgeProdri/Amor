@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Regalo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="row offset-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="greetings">
+            <span>T</span>
+            <span>e</span>
+            <span>A</span>
+            <span>m</span>
+            <span>o</span>
+            <span>💖</span>
+          </div>       
+          <div class="card-header">
+            <h3 class="text-black text-center">Te Amo mi niña <span style="color: red;">&#x2764;</span></h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <img id="imagen1" src="img/1.jpeg" alt="Descripción de la imagen 1" class="img-fluid" style="width: 200px; height: 200px;">
+                  </div>
+                  <div class="col-md-6">
+                    <img id="imagen2" src="img/c3.jpeg" alt="Descripción de la imagen 2" class="img-fluid" style="width: 200px; height: 200px;">
+                  </div>
+                  <div class="col-md-12 mt-3">
+                    <img id="imagen3" src="img/3.jpeg" alt="Descripción de la imagen 3" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="alerta-imagen1" style="display: none;">
+              <p>¡Te amo!<span style="color: rgb(90, 40, 40);">&#x2764;</span>Quiero que sepas que realmente me 
+                emociona el hecho de transcurriera un mes asi de rapido y me pongo a pensar en lo bonito que ha sido que
+                porque de cierta manera me has dado un hermoso brillo de tu parte.</p>
+            </div>
+            <div id="alerta-imagen2" style="display: none;">
+              <p>Sabes es lindo saber que todos nos apoyan en la relacion, se siente bonito porque es una relacion sana de los dos
+                y incluso saber que le agradamos a nuestras madres es lindo porque en un principio pensaba que diria algo por la edad :c.</p>
+            </div>
+            <div id="alerta-imagen3" style="display: none;">
+              <p>Dato curioso: Quiero que seas mi presente y mi futuro porque no te vas a deshacer de mi facilmente
+                te hare berrinche porque quiero estar contigo y ganarme a tu familia a toda tu familia.</p>
+            </div>
+            <div class="col-md-9">
+              <div class="button">
+                <button class="botones">
+                    <a href="ventana/ventana1.html" style="color: #fff;">¡Acompañame!</a>
+                </button>            
+            </div>
+           
+          </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <audio id="musica">
+    <source src="until_i_found_you.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script>
+    const audioElement = document.getElementById('musica');
+  
+    window.addEventListener('DOMContentLoaded', () => {
+      audioElement.play(); // Inicia la reproducción al cargar la página o al recargarla
+    });
+  </script>
+  
+ 
+  <script>
+    // Función para ocultar todas las alertas
+    function ocultarAlertas() {
+      const alertas = document.querySelectorAll('.alerta-imagen');
+      alertas.forEach(alerta => alerta.style.display = 'none');
+    }
+
+    // Función para mostrar una alerta centrada
+    function mostrarAlertaCentrada(idAlerta) {
+      ocultarAlertas();
+      const alertaElement = document.getElementById(idAlerta);
+      alertaElement.style.display = 'block';
+    }
+
+    // Función para ocultar una alerta después de 10 segundos
+    function ocultarAlerta(idAlerta) {
+      setTimeout(() => {
+        document.getElementById(idAlerta).style.display = 'none';
+      }, 10000);
+    }
+
+    // Funciones para mostrar cada alerta con verificación si ya está visible
+    function mostrarAlertaImagen1() {
+      if (document.getElementById('alerta-imagen1').style.display === 'none') {
+        mostrarAlertaCentrada('alerta-imagen1');
+        ocultarAlerta('alerta-imagen1'); // Ocultar después de 10 segundos
+      }
+    }
+    function mostrarAlertaImagen2() {
+      if (document.getElementById('alerta-imagen2').style.display === 'none') {
+        mostrarAlertaCentrada('alerta-imagen2');
+        ocultarAlerta('alerta-imagen2'); // Ocultar después de 10 segundos
+      }
+    }
+    function mostrarAlertaImagen3() {
+      if (document.getElementById('alerta-imagen3').style.display === 'none') {
+        mostrarAlertaCentrada('alerta-imagen3');
+        ocultarAlerta('alerta-imagen3'); // Ocultar después de 10 segundos
+      }
+    }
+
+    // Asignar eventos click a las imágenes para mostrar las alertas correspondientes
+    document.getElementById("imagen1").addEventListener("click", mostrarAlertaImagen1);
+    document.getElementById("imagen2").addEventListener("click", mostrarAlertaImagen2);
+    document.getElementById("imagen3").addEventListener("click", mostrarAlertaImagen3);
+
+    // Función para crear corazones y añadirlos al DOM
+    function crearCorazon() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 3 + 2}s`; // Duración de 2 a 5 segundos
+      heart.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 75%)`; // Colores aleatorios
+      document.body.appendChild(heart);
+
+      // Eliminar el corazón 
+      setTimeout(() => {
+        heart.remove();
+      }, 5000); // 5 segundos para coincidir con la duración máxima de la animación uwu
+    }
+
+    // Crear corazones cada 300ms me sirviooooooooooo
+    setInterval(crearCorazon, 300);
+  </script>
+</body>
+</html>

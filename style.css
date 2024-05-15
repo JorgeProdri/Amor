@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+*{
+    font-family: 'Poppins',cursive;
+}
+
+body{
+    margin: 5%;
+    background-image: url(img/kazu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .img-fluid {
+    width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+    object-fit: cover;  /* Recorta la imagen para cubrir el contenedor */
+  }
+  .greetings{
+    font-size: 3rem;
+    font-weight: 900;
+}
+.greetings > span{
+    animation: glow 2.5s ease-in-out infinite;
+}
+@keyframes glow{
+    0%, 100%{
+        color: #fff;
+        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+    }
+    10%, 90%{
+        color: #111;
+        text-shadow: none;
+    }
+}
+.greetings > span:nth-child(2){
+    animation-delay: .2s ;
+}
+.greetings > span:nth-child(3){
+    animation-delay: .4s ;
+}
+.greetings > span:nth-child(4){
+    animation-delay: .6s;
+}
+.greetings > span:nth-child(5){
+    animation-delay: .8s;
+}
+.greetings > span:nth-child(6){
+    animation-delay: 1s;
+}
+
+.botones{
+    padding: 9px;
+    border-radius: 80px;
+    background-color: transparent;
+    border: none;
+}
+
+.botones a{
+    background-color: #0a2be9;
+    padding: 9px;
+    border-radius: 80px;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    -ms-border-radius: 80px;
+    -o-border-radius: 80px;
+
+}
+/* Estilo general para las alertas */
+#alerta-imagen1, #alerta-imagen2, #alerta-imagen3 {
+    background-color: #ec64bf;
+    border: 1px solid #CCC;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    position: absolute; /* Posicionamiento absoluto */
+    display: none; /* Ocultas por defecto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar con transform */
+  }
+  .heart {
+    position: fixed;
+    top: -50px; /* Comienza fuera de la pantalla en la parte superior */
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: fall linear infinite;
+    z-index: 1000;
+  }
+
+  .heart:before,
+  .heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+
+  .heart:before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart:after {
+    top: 0;
+    left: 10px;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+
+  .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
